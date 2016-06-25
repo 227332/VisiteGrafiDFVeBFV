@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane id="BorderPane" fx:id="theRoot" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polito.esame.ControllerT1">
+  <bottom>
+    <TextArea fx:id="txtResult" prefWidth="200.0" style="-fx-background-color: #FFFF80" text="Risultato..." wrapText="true">
+      <effect>
+        <DropShadow offsetX="5.0" offsetY="5.0">
+          <color>
+            <Color blue="0.392" green="0.392" red="0.392" fx:id="x1" />
+          </color>
+        </DropShadow>
+      </effect>
+      <BorderPane.margin>
+        <Insets bottom="10.0" left="10.0" right="10.0" />
+      </BorderPane.margin>
+    </TextArea>
+  </bottom>
+  <center>
+    <GridPane>
+      <children>
+        <Label text="Parola con DFV" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <Label text="Parola con BFV" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <TextField fx:id="txtParolaDFV" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+          <effect>
+            <DropShadow color="$x1" offsetX="5.0" offsetY="5.0" />
+          </effect>
+        </TextField>
+        <TextField fx:id="txtParolaBFV" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+          <effect>
+            <DropShadow color="$x1" offsetX="5.0" offsetY="5.0" />
+          </effect>
+        </TextField>
+        <Button fx:id="btnCerca" mnemonicParsing="false" onAction="#doCercaParole" text="Cerca" textAlignment="LEFT" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+      </children>
+      <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-1.0" percentWidth="20.0" prefWidth="-1.0" />
+        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-1.0" minWidth="10.0" percentWidth="80.0" prefWidth="-1.0" />
+      </columnConstraints>
+      <padding>
+        <Insets right="20.0" />
+      </padding>
+      <rowConstraints>
+        <RowConstraints minHeight="-1.0" prefHeight="-1.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="-1.0" prefHeight="-1.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="-1.0" prefHeight="-1.0" vgrow="SOMETIMES" />
+      </rowConstraints>
+    </GridPane>
+  </center>
+  <left>
+    <VBox prefHeight="-1.0" prefWidth="-1.0">
+      <children>
+        <Label text="Lunghezza" />
+        <TextField fx:id="txtLunghezza" prefColumnCount="5" prefWidth="-1.0" text="4" />
+        <Button fx:id="btnCarica" mnemonicParsing="false" onAction="#doCaricaParole" text="Carica" />
+      </children>
+      <padding>
+        <Insets left="20.0" right="20.0" />
+      </padding>
+    </VBox>
+  </left>
+  <top>
+    <Label text="Ricerca percorsi parole (T1)" textAlignment="LEFT" textFill="RED" BorderPane.alignment="CENTER">
+      <font>
+        <Font size="24.0" />
+      </font>
+    </Label>
+  </top>
+</BorderPane>
